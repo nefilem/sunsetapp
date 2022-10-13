@@ -1,5 +1,6 @@
 {
   "name": "sunsetapp",
+  "homepage": "https://nefilem.github.io/sunsetapp/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
