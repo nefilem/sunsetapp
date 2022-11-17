@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/sunsetapp/static/css/main.f04ea75b.css",
-    "main.js": "/sunsetapp/static/js/main.cac3c2cc.js",
+    "main.js": "/sunsetapp/static/js/main.b3beb525.js",
     "index.html": "/sunsetapp/index.html",
     "main.f04ea75b.css.map": "/sunsetapp/static/css/main.f04ea75b.css.map",
-    "main.cac3c2cc.js.map": "/sunsetapp/static/js/main.cac3c2cc.js.map"
+    "main.b3beb525.js.map": "/sunsetapp/static/js/main.b3beb525.js.map"
   },
   "entrypoints": [
     "static/css/main.f04ea75b.css",
-    "static/js/main.cac3c2cc.js"
+    "static/js/main.b3beb525.js"
   ]
 }
