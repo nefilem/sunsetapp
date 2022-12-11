@@ -57,7 +57,7 @@ function predictSunset(clouds, wind_speed, humidity) {
     // );
     return (
         <span style={{backgroundColor: pcToRGB(total_weight)}}>
-            Sunset predictor: {total_weight}
+            &nbsp; Sunset predictor: {total_weight} &nbsp;
         </span>
     );
 
@@ -78,6 +78,17 @@ const pcToRGB = (percentage) => {
     var blue = 0.0;
     //console.log(rgbToHex(red, green, blue));
     return rgbToHex(red, green, blue);
+}
+
+const tempToRGB = (min, max, temperature) => {
+    //const maxTemp = 3;
+    //const minTemp = -2;
+    const red = 255 / (max - min) * (temperature - min);
+    const green = 0;
+    const blue = 255 / (max - min) * (max - temperature);
+
+    return rgbToHex(red, green, blue);
+  /*<div style={{ backgroundColor : `rgb(${redVal}, 0, ${blueVal})` }}*/
 }
 
 const dateDisplay = (dateNumeric) => {
@@ -101,10 +112,22 @@ const getIconURI = (iconId) => {
 const weatherLinks = (props) => {
     //console.log(weather.daily[0].weather.icon);
     // style={{backgroundImage: `url(${getIconURI(current.weather[0].icon)})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}    
+    let tmin = 0, tmax = 0, set = 0;
+    props.weather.daily.map((current) => {
+        if (set === 0) {
+            tmin = current.temp.min;
+            tmax = current.temp.max;
+            set = 1;
+        } else {
+            if (tmin > current.temp.min) { tmin = current.temp.min; }
+            if (tmax < current.temp.max) { tmax = current.temp.max; }
+        }
+    }) 
     return props.weather.daily.map((current, index) => (
         <>       
-        <Row>
-            <Col>           
+        {/*<Row className="navDateDisplay" style={{border: "solid #000", borderWidth: "2px", borderRadius: "5%", padding: "0", margin: "0"}}>*/}
+        <Row className="navDateDisplay">
+            {/*<Col>           
                     <p className="navDateDisplay">{dateDisplay(current.dt)}</p>
                     <img alt="icon for weather" height={64} width={64} src={`${getIconURI(current.weather[0].icon)}`}></img>        
                     <button onClick={() => props.dispDetailedWeather(index)} className="dailyButton">
@@ -113,9 +136,35 @@ const weatherLinks = (props) => {
                         {current.weather[0].description}<br />
                         Wind Speed (Knots): {current.wind_speed}<br />
                         { predictSunset(current.clouds, current.wind_speed, current.humidity) }
-                    </button>
-                   
-            </Col>
+                    </button>*/}
+                    <Col xs={1} md={1} lg={1} classname="align-weather-image align-items-center">
+                        <div className="weather-image responsive-weather-image-size">
+                            <img alt={`${"Icon for" + getIconURI(current.weather[0].icon)}`} className="responsive-weather-image-size" src={`${getIconURI(current.weather[0].icon)}`}></img>
+                        </div>
+                    </Col>
+                    <Col xs={9} md={9} lg={9} style={{backgroundImage: "linear-gradient(to right, " + tempToRGB(tmin, tmax, current.temp.min) + ", " + tempToRGB(tmin, tmax, current.temp.max) + ")"}}>
+                        <Row>
+                            <Col xs={3} md={3} lg={3} className="align-weather-text align-items-center">
+                                {dateDisplay(current.dt)}
+                            </Col>
+                            <Col xs={2} md={2} lg={2} className="align-weather-text align-items-center">
+                                Min: {current.temp.min}&#8451;
+                            </Col>
+                            <Col xs={2} md={2} lg={2} className="align-weather-text align-items-center">
+                                Max: {current.temp.max}&#8451;
+                            </Col>
+                            <Col xs={2} md={2} lg={2} className="align-weather-text align-items-center">
+                                {current.weather[0].description}
+                            </Col>   
+                            <Col xs={3} md={3} lg={3} className="align-weather-text align-items-center">
+                                Wind Speed (Knots): {current.wind_speed}
+                            </Col>
+                        </Row>
+                    </Col>
+                    <Col xs={2} md={2} lg={2} className="align-weather-text align-items-center sunset-predictor-color">
+                        { predictSunset(current.clouds, current.wind_speed, current.humidity) }
+                    </Col>
+            {/*</Col>*/}
         </Row>
         </>
     ));

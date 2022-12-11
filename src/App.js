@@ -112,7 +112,8 @@ function App() {
           <p className="navDateDisplay">8 Day Forecast</p>
         </Row>
         <Row xs={12} md={12} lg={12}>
-          <Col xs={4} md={4} lg={4}>
+          {/*<Col xs={4} md={4} lg={4}>*/}
+          <Col xs={12} md={12} lg={12}>
             <Container>
               <Sidebar
                 weather={weather}
@@ -120,10 +121,10 @@ function App() {
               />
             </Container>
           </Col>
-          <Col xs={8} md={8} lg={8}>
+          {/* <Col xs={8} md={8} lg={8}>
             <WeatherCard weather={detailWeather} />
-          </Col>
-        </Row>
+          </Col>*/}
+        </Row> 
       </Container>
     </div>
   );
