@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/sunsetapp/static/css/main.a2858f70.css",
-    "main.js": "/sunsetapp/static/js/main.880ff4cd.js",
+    "main.css": "/sunsetapp/static/css/main.2a317351.css",
+    "main.js": "/sunsetapp/static/js/main.a32642eb.js",
     "index.html": "/sunsetapp/index.html",
-    "main.a2858f70.css.map": "/sunsetapp/static/css/main.a2858f70.css.map",
-    "main.880ff4cd.js.map": "/sunsetapp/static/js/main.880ff4cd.js.map"
+    "main.2a317351.css.map": "/sunsetapp/static/css/main.2a317351.css.map",
+    "main.a32642eb.js.map": "/sunsetapp/static/js/main.a32642eb.js.map"
   },
   "entrypoints": [
-    "static/css/main.a2858f70.css",
-    "static/js/main.880ff4cd.js"
+    "static/css/main.2a317351.css",
+    "static/js/main.a32642eb.js"
   ]
 }
