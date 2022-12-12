@@ -1,4 +1,4 @@
-import Col from 'react-bootstrap/Col';
+import {Row, Col} from 'react-bootstrap';
 import './dashboard.css';
 
 const timeDisplay = (dateNumeric) => {
@@ -26,14 +26,16 @@ function CurrentWeatherTimeline(props){
 
         return timeLineArr.map((current, index) => (
         <> 
-            <Col>
-                <img alt="" height={64} width={64} src={`${getIconURI(current.weather[0].icon)}`}></img>
-                <div className="timelineDiv"> 
-                    {timeDisplay(current.dt)}<br/>
-                    {current.temp}&#8451;<br/>
-                    {current.weather[0].description}<br/>
-                    w/s {current.wind_speed} knots
-                </div>
+            <Col lg={1} md={2} xs={2}>
+                    <div  style={{margin: "auto"}} className="weather-image responsive-weather-image-size">
+                        <img alt={`${"Icon for" + getIconURI(current.weather[0].description)}`} className="responsive-weather-image-size" src={`${getIconURI(current.weather[0].icon)}`}></img>
+                    </div>
+                    <div style={{margin: "auto"}} className="timelineDiv"> 
+                        {timeDisplay(current.dt)}<br/>
+                        {current.temp}&#8451;<br/>
+                        {current.weather[0].description}<br/>
+                        w/s {current.wind_speed} knots
+                    </div>
             </Col>
         </>));
     }

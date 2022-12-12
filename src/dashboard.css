@@ -8,6 +8,7 @@
     padding: 48px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
+
 #sidebar-wrapper{
     min-height: 100vh !important;
     width: 100vw;
@@ -55,7 +56,19 @@
     color: black;
 }
 
+.sunset-predictor {
+    padding-top: 4px;
+    text-align: center;
+    vertical-align: middle;  
+    color: rgba(255,255,255,1);
+}
 
+.text-shadow {
+    text-shadow: -0.05px -0.05px 4px rgba(0,0,0,1), 
+                 0.05px 0.05px 4px rgba(0,0,0,1),
+                 -0.05px 0.05px 4px rgba(0,0,0,1),
+                 0.05px -0.05px 4px rgba(0,0,0,1);
+}
 
 @media screen and (min-width: 900px) { 
     .responsive-weather-image-size {
@@ -90,6 +103,10 @@
     #sidebar-wrapper .sidebar-heading {
         padding: 0.875rem 1.25rem;
         font-size: 1.2rem;
+    }
+
+    .daily-image-left {
+        -webkit-transform:translateX(0);
     }
     
 }
@@ -126,6 +143,10 @@
     #sidebar-wrapper .sidebar-heading {
         padding: 0.4375rem 0.625rem;
         font-size: 0.6rem;
+    }
+
+    .daily-image-left {
+        -webkit-transform:translateX(-8px);
     }
     
 }

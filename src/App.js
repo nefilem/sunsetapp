@@ -115,6 +115,33 @@ function App() {
           {/*<Col xs={4} md={4} lg={4}>*/}
           <Col xs={12} md={12} lg={12}>
             <Container>
+              <Row className="navDateDisplay">
+              <Col xs={1} md={1} lg={1} style={{margin: "auto"}} classname="align-weather-image align-items-center">
+                &nbsp;
+              </Col>
+              <Col xs={9} md={9} lg={9}>
+                  <Row>
+                      <Col xs={3} md={3} lg={3} className="align-weather-text align-items-center">
+                          Date
+                      </Col>
+                      <Col xs={2} md={2} lg={2} className="align-weather-text align-items-center">
+                          Min
+                      </Col>
+                      <Col xs={2} md={2} lg={2} className="align-weather-text align-items-center">
+                          Max
+                      </Col>
+                      <Col xs={2} md={2} lg={2} className="align-weather-text align-items-center">
+                          Weather
+                      </Col>   
+                      <Col xs={3} md={3} lg={3} className="align-weather-text align-items-center">
+                          Wind speed
+                      </Col>
+                  </Row>
+              </Col>
+              <Col xs={2} md={2} lg={2}>
+                  Sunset Prediction
+              </Col>
+          </Row>
               <Sidebar
                 weather={weather}
                 dispDetailedWeather={(index) => displayDetailedWeather(index)}
